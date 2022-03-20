@@ -1,0 +1,13 @@
+[Unit]
+Description=matrix api service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/uwsgi --ini /etc/matrix/uwsgi.ini
+Restart=on-failure
+StartLimitBurst=0
+
+[Install]
+WantedBy=multi-user.target
